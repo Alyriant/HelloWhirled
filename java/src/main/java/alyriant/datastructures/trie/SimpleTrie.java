@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
 
+
 /**
  * A simple trie for Strings, supporting add, containsPrefix, contains, and remove.
  * To support Unicode efficiently, strings are first converted to UTF-8 internally, and then a traditional
@@ -19,6 +20,11 @@ public class SimpleTrie
     private final static int ARRAY_SIZE = 256;
 
     private Node root;
+    private int size = 0;
+
+    public int getSize() {
+        return size;
+    }
 
     /** Trie node is dumb data, with all logic in the outer class. */
     private class Node
@@ -30,7 +36,7 @@ public class SimpleTrie
      * Converts a non-negative integer (0 to 255) to a signed byte -128 to 127. Useful when converting an array index to
      * a byte value.
      */
-    public static byte nonNegativeIntToSignedByte(int i)
+    static byte nonNegativeIntToSignedByte(int i)
     {
         return (byte) i;
     }
@@ -39,7 +45,7 @@ public class SimpleTrie
      * Converts a byte (which is a signed number from -128 to 127) to the equivalent non-negative integer (0 to 255).
      * Useful when using the byte value as an array index.
      */
-    public static int signedByteToNonNegativeInt(byte b)
+    static int signedByteToNonNegativeInt(byte b)
     {
         return b & 0xff;
     }
@@ -93,6 +99,7 @@ public class SimpleTrie
         if (current.children[0] == null)
         {
             current.children[0] = new Node(); // end of word marker
+            ++size;
         }
     }
 
@@ -122,6 +129,7 @@ public class SimpleTrie
         if (n != null && n.children != null && n.children[0] != null)
         {
             n.children[0] = null;
+            --size;
         }
     }
 
@@ -154,8 +162,13 @@ public class SimpleTrie
     /**
      * Converts a string to a Unicode normalized, lowercase byte array in UTF8 format.
      */
-    private byte[] toNormalizedByteArray(String s)
+    static byte[] toNormalizedByteArray(String s)
     {
+        if (s == null)
+        {
+            return null;
+        }
+
         byte[] utf8Bytes;
         try
         {
@@ -176,8 +189,12 @@ public class SimpleTrie
     /**
      * Converts an ArrayList of bytes in UTF8 format to a String.
      */
-    private String toNormalizedString(ArrayList<Byte> utf8Bytes)
+    static String utf8ToString(ArrayList<Byte> utf8Bytes)
     {
+        if (utf8Bytes == null)
+        {
+            return null;
+        }
         byte[] bytes = new byte[utf8Bytes.size()];
         for (int i = 0; i < utf8Bytes.size(); i++)
         {
@@ -216,7 +233,7 @@ public class SimpleTrie
     {
         if (current.children[0] != null)
         {
-            String key = toNormalizedString(utf8Bytes);
+            String key = utf8ToString(utf8Bytes);
             System.out.println(key);
         }
         for (int i = 1; i < ARRAY_SIZE; i++)
@@ -229,47 +246,4 @@ public class SimpleTrie
             }
         }
     }
-
-    public static void main(String[] args)
-    {
-        SimpleTrie s = new SimpleTrie();
-        s.add("Hello Whirled");
-        s.add("oﬀice");
-        s.add("Office");
-        s.add("Offer");
-        s.add("Off");
-        s.add("of");
-        s.add("त्तुम्δύçăâɑːsþsaðстиარაجامييهিಗನುහාන");
-        s.printKeys();
-
-        System.out.println("Contains ''? " + s.contains(""));
-        System.out.println("Contains 'oﬀice'? " + s.contains("oﬀice"));
-        System.out.println("Contains 'OfficE'? " + s.contains("OfficE"));
-        System.out.println("Contains 'oﬀi'? " + s.contains("oﬀi"));
-        System.out.println("Contains prefix 'oﬀi'? " + s.containsPrefix("oﬀi"));
-        System.out.println("Contains prefix 'oﬀice'? " + s.containsPrefix("oﬀice"));
-
-        s.remove("Office");
-        System.out.println("Contains removed 'Office'? " + s.contains("Office"));
-    }
 }
-
-/* Output:
-
-Keys of alyriant.datastructures.trie.SimpleTrie@1d44bcfa
-hello whirled
-of
-off
-offer
-office
-त्तुम्δύçăâɑːsþsaðстиარაجامييهিಗನುහාන
-Contains ''? false
-Contains 'oﬀice'? true
-Contains 'OfficE'? true
-Contains 'oﬀi'? false
-Contains prefix 'oﬀi'? true
-Contains prefix 'oﬀice'? true
-Contains removed 'Office'? false
-
-Process finished with exit code 0
-*/
