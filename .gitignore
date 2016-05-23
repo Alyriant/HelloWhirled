@@ -192,6 +192,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+## Local additions
+
+*.xml___jb_bak___
+
+
 
 # --------------------------------------------------------------------------------
 # LibreOffice.gitignore:
@@ -2215,3 +2220,4 @@ data/DoctrineORMModule/cache/
 # Legacy ZF1
 demos/
 extras/documentation
+
