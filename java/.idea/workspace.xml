@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89660800-7c36-487c-9111-e67988dc9cac" name="Default" comment="Added unit tests for SimpleTrie">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/alyriant/text/UnicodeNormalizationFormKC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/alyriant/datastructures/trie/SimpleTrie.java" afterPath="$PROJECT_DIR$/src/main/java/alyriant/datastructures/trie/SimpleTrie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/alyriant/datastructures/trie/SimpleTrieTest.java" afterPath="$PROJECT_DIR$/src/main/java/alyriant/datastructures/trie/SimpleTrieTest.java" />
     </list>
     <ignored path="HelloWhirled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -295,10 +290,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="alyriant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="text" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -775,6 +766,13 @@
       <option name="number" value="Default" />
       <updated>1463192941344</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added SimpleTrie unit tests.">
+      <created>1463981371953</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1463981371953</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -852,7 +850,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added unit tests for SimpleTrie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests for SimpleTrie" />
+    <MESSAGE value="Added SimpleTrie unit tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SimpleTrie unit tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -988,14 +987,6 @@
             <element signature="e#30047#30048#0" expanded="false" />
             <element signature="e#30079#30080#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/alyriant/text/UnicodeNormalizationFormKC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.025917927">
-          <caret line="8638" column="2" selection-start-line="8638" selection-start-column="2" selection-end-line="8638" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
