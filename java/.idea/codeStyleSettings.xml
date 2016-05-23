@@ -35,9 +35,6 @@
           <option name="ANNOTATION_PARAMETER_WRAP" value="1" />
           <option name="ALIGN_MULTILINE_ANNOTATION_PARAMETERS" value="true" />
         </JavaCodeStyleSettings>
-        <XML>
-          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
-        </XML>
         <codeStyleSettings language="JAVA">
           <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
           <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
