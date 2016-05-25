@@ -1,62 +1,54 @@
 package alyriant.datastructures.trie;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import static org.junit.Assert.*;
 
-public class SimpleTrieTest
-{
+public class SimpleTrieTest {
     public static final String LATIN_CAPITAL_LIGATURE_IJ = "\u0132"; // "Ĳ";
     public static final String EURO_SIGN = "\u20AC"; // €
     public static final ArrayList<Byte> EURO_SIGN_UTF8
             = new ArrayList<>(Arrays.asList((byte) 0xE2, (byte) 0x82, (byte) 0xAC));
 
     @Test
-    public void testNonNegativeIntToSignedByte() throws Exception
-    {
-        assertEquals(-128, (int)SimpleTrie.nonNegativeIntToSignedByte(128));
-        assertEquals(-1, (int)SimpleTrie.nonNegativeIntToSignedByte(255));
+    public void testNonNegativeIntToSignedByte() throws Exception {
+        assertEquals(-128, (int) SimpleTrie.nonNegativeIntToSignedByte(128));
+        assertEquals(-1, (int) SimpleTrie.nonNegativeIntToSignedByte(255));
     }
 
     @Test
-    public void testSignedByteToNonNegativeInt() throws Exception
-    {
-        assertEquals(128,SimpleTrie.signedByteToNonNegativeInt((byte) -128));
-        assertEquals(255,SimpleTrie.signedByteToNonNegativeInt((byte) -1));
+    public void testSignedByteToNonNegativeInt() throws Exception {
+        assertEquals(128, SimpleTrie.signedByteToNonNegativeInt((byte) -128));
+        assertEquals(255, SimpleTrie.signedByteToNonNegativeInt((byte) -1));
     }
 
     @Test
-    public void testToNormalizedByteArray() throws Exception
-    {
-        byte [] bytes = SimpleTrie.toNormalizedByteArray(LATIN_CAPITAL_LIGATURE_IJ);
-        byte [] expected = { 'i', 'j'};
+    public void testToNormalizedByteArray() throws Exception {
+        byte[] bytes = SimpleTrie.toNormalizedByteArray(LATIN_CAPITAL_LIGATURE_IJ);
+        byte[] expected = {'i', 'j'};
         assertArrayEquals(expected, bytes);
     }
 
     @Test
-    public void testToNormalizedByteArrayWithNull() throws Exception
-    {
+    public void testToNormalizedByteArrayWithNull() throws Exception {
         assertNull(SimpleTrie.toNormalizedByteArray(null));
     }
 
     @Test
-    public void testUtf8ToString()
-    {
+    public void testUtf8ToString() {
         assertEquals(EURO_SIGN, SimpleTrie.utf8ToString(EURO_SIGN_UTF8));
     }
 
     @Test
-    public void testUtf8ToStringWithNull()
-    {
+    public void testUtf8ToStringWithNull() {
         assertNull(SimpleTrie.utf8ToString(null));
     }
 
     @Test
-    public void testAdd() throws Exception
-    {
+    public void testAdd() throws Exception {
         SimpleTrie s = new SimpleTrie();
         assertEquals(0, s.getSize());
         s.add("Hello Whirled");
@@ -64,24 +56,21 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddWithNull() throws Exception
-    {
+    public void testAddWithNull() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add(null);
         assertEquals(0, s.getSize());
     }
 
     @Test
-    public void testAddWithEmpty() throws Exception
-    {
+    public void testAddWithEmpty() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("");
         assertEquals(0, s.getSize());
     }
 
     @Test
-    public void testAddDuplicate() throws Exception
-    {
+    public void testAddDuplicate() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("Hello Whirled");
         s.add("Hello Whirled");
@@ -89,8 +78,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddDuplicateNormalized() throws Exception
-    {
+    public void testAddDuplicateNormalized() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("oﬀice");
         assertEquals(1, s.getSize());
@@ -99,8 +87,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddDuplicateCaseInsensitive() throws Exception
-    {
+    public void testAddDuplicateCaseInsensitive() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("office");
         s.add("OFFICE");
@@ -108,8 +95,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddPartialOverlap() throws Exception
-    {
+    public void testAddPartialOverlap() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("Office");
         s.add("Offer");
@@ -117,8 +103,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddFullOverlap() throws Exception
-    {
+    public void testAddFullOverlap() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("Office");
         s.add("Off");
@@ -127,19 +112,16 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testAddNoOverlap() throws Exception
-    {
+    public void testAddNoOverlap() throws Exception {
         SimpleTrie s = new SimpleTrie();
-        for (Character c = 'a'; c <= 'z'; c++)
-        {
+        for (Character c = 'a'; c <= 'z'; c++) {
             s.add(c.toString());
         }
         assertEquals(26, s.getSize());
     }
 
     @Test
-    public void testContainsPrefix() throws Exception
-    {
+    public void testContainsPrefix() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("Office");
         s.add("OFFICER");
@@ -153,8 +135,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testContains() throws Exception
-    {
+    public void testContains() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("Officer");
 
@@ -165,8 +146,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testRemove() throws Exception
-    {
+    public void testRemove() throws Exception {
         SimpleTrie s = new SimpleTrie();
         s.add("office");
         s.add("OFFICER");
@@ -189,8 +169,7 @@ public class SimpleTrieTest
     }
 
     @Test
-    public void testPrintKeys() throws Exception
-    {
+    public void testPrintKeys() throws Exception {
         // For simplicity, just checking that it doesn't throw an exception
         SimpleTrie s = new SimpleTrie();
         s.add("Officer");

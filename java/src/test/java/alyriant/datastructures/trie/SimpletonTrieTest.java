@@ -1,21 +1,13 @@
 package alyriant.datastructures.trie;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-public class SimpletonTrieTest
-{
+public class SimpletonTrieTest {
     @Test
-    public void testContainsPrefix() throws Exception
-    {
+    public void testContainsPrefix() throws Exception {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Office");
         s.add("Officer");
@@ -29,8 +21,7 @@ public class SimpletonTrieTest
     }
 
     @Test
-    public void testContains() throws Exception
-    {
+    public void testContains() throws Exception {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Officer");
 
@@ -41,8 +32,7 @@ public class SimpletonTrieTest
     }
 
     @Test
-    public void testRemove() throws Exception
-    {
+    public void testRemove() throws Exception {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Office");
         s.add("Officer");
