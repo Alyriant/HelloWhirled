@@ -1,11 +1,21 @@
 package alyriant.datastructures.trie;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 public class SimpletonTrieTest {
+    @Test
+    public void testContains() throws Exception {
+        SimpletonTrie s = new SimpletonTrie();
+        s.add("Officer");
+
+        assertTrue(s.contains("Officer"));
+
+        assertFalse(s.contains("Office"));
+        assertFalse(s.contains("Officers"));
+    }
+
     @Test
     public void testContainsPrefix() throws Exception {
         SimpletonTrie s = new SimpletonTrie();
@@ -18,17 +28,6 @@ public class SimpletonTrieTest {
 
         assertFalse(s.containsPrefix("Officers"));
         assertFalse(s.containsPrefix("Offer"));
-    }
-
-    @Test
-    public void testContains() throws Exception {
-        SimpletonTrie s = new SimpletonTrie();
-        s.add("Officer");
-
-        assertTrue(s.contains("Officer"));
-
-        assertFalse(s.contains("Office"));
-        assertFalse(s.contains("Officers"));
     }
 
     @Test
