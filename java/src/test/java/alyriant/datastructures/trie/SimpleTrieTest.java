@@ -179,7 +179,9 @@ public class SimpleTrieTest {
 
     //-----------------------------------------------------------------------------
     private static final String EURO_SIGN = "\u20AC"; // €
+
     private static final ArrayList<Byte> EURO_SIGN_UTF8
         = new ArrayList<>(Arrays.asList((byte) 0xE2, (byte) 0x82, (byte) 0xAC));
+
     private static final String LATIN_CAPITAL_LIGATURE_IJ = "\u0132"; // "Ĳ";
 }
