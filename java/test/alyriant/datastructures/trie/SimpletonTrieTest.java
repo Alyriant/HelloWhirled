@@ -1,12 +1,12 @@
 package alyriant.datastructures.trie;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 public class SimpletonTrieTest {
     @Test
-    public void testContains() throws Exception {
+    public void testContains() {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Officer");
 
@@ -17,7 +17,7 @@ public class SimpletonTrieTest {
     }
 
     @Test
-    public void testContainsPrefix() throws Exception {
+    public void testContainsPrefix() {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Office");
         s.add("Officer");
@@ -31,7 +31,7 @@ public class SimpletonTrieTest {
     }
 
     @Test
-    public void testRemove() throws Exception {
+    public void testRemove() {
         SimpletonTrie s = new SimpletonTrie();
         s.add("Office");
         s.add("Officer");
