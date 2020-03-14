@@ -1,19 +1,24 @@
 package alyriant.datastructures.trie;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
 
 public class SimpletonTrieTest {
     @Test
     public void testContains() {
         SimpletonTrie s = new SimpletonTrie();
-        s.add("Officer");
 
+        assertFalse(s.contains("Officer"));
+        s.add("Officer");
         assertTrue(s.contains("Officer"));
 
         assertFalse(s.contains("Office"));
+        assertFalse(s.contains("fficer"));
+
         assertFalse(s.contains("Officers"));
+        s.add("Officers");
+        assertTrue(s.contains("Officers"));
     }
 
     @Test
@@ -27,7 +32,6 @@ public class SimpletonTrieTest {
         assertTrue(s.containsPrefix("Officer"));
 
         assertFalse(s.containsPrefix("Officers"));
-        assertFalse(s.containsPrefix("Offer"));
     }
 
     @Test

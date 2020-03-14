@@ -1,6 +1,5 @@
 package alyriant.datastructures.trie;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -146,15 +145,10 @@ public class SimpleTrie {
         }
 
         byte[] utf8Bytes;
-        try {
             String normalized = Normalizer.isNormalized(s, Normalizer.Form.NFKC)
                 ? s
                 : Normalizer.normalize(s, Normalizer.Form.NFKC);
-            utf8Bytes = normalized.toLowerCase().getBytes("UTF8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
-        }
+        utf8Bytes = normalized.toLowerCase().getBytes(StandardCharsets.UTF_8);
 
         return utf8Bytes;
     }

@@ -111,8 +111,8 @@ public class SimpleTrieTest {
 
     @Test
     public void testNonNegativeIntToSignedByte() {
-        assertEquals(-128, (int) SimpleTrie.nonNegativeIntToSignedByte(128));
-        assertEquals(-1, (int) SimpleTrie.nonNegativeIntToSignedByte(255));
+        assertEquals(-128, SimpleTrie.nonNegativeIntToSignedByte(128));
+        assertEquals(-1, SimpleTrie.nonNegativeIntToSignedByte(255));
     }
 
     @Test

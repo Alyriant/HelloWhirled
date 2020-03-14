@@ -17,7 +17,7 @@ public class SimpletonTrie {
             root.children = new Node[ARRAY_SIZE];
         }
 
-        char characters[] = s.toCharArray();
+        char[] characters = s.toCharArray();
 
         Node current = root;
 
@@ -79,7 +79,7 @@ public class SimpletonTrie {
     private Node nodeAtEndOfPrefix(String s) {
         Node current = root;
 
-        char characters[] = s.toCharArray();
+        char[] characters = s.toCharArray();
 
         for (char c : characters) {
             if (current.children == null || current.children[(int) c] == null) {
